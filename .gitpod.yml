@@ -1,0 +1,3 @@
+image:
+  file: Dockerfile #De aqui vas a jalar el contenedor. Vas a crear una imagen basada en este archivo 
+  
