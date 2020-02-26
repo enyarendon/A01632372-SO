@@ -2,12 +2,10 @@
 #include "stat.h"
 #include "user.h"
 
-
-
 int
 main(int argc, char *argv[])
 {
-  printf("Adios perros");
+  printf(1,"Adios perros\n");
   shutdown();
   exit();
 }
