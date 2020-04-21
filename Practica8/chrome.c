@@ -13,7 +13,7 @@ int main() {
         hijos[i]=pid;
         if(pid !=0){
             shmId = shmget(200, 100, 0644); 
-            char *var =(char *)shmat(shmId,NULL,0);
+            int *var =(int *)shmat(shmId,NULL,0);
             var=&var[i*10];
             for(int j = 0; j < 10; j++){
                 var[j] = i + '0';
@@ -21,11 +21,13 @@ int main() {
             return 0;
         }
 
+        }
+    for(int i = 0; i < 5; i++){
+        waitpid(hijos[i],0,0);
     }
-for(int i = 0; i < 5; i++){
-    waitpid(hijos[i],0,0);
-}
-char *var = (char *) shmat(shmId,NULL,0); 
-printf("El contenido es %s\n",var);
-return 0;
+    int *var = (int *) shmat(shmId,NULL,0);
+     printf("El contenido es "); 
+    for(int i =0; i<400; i++)
+    printf("%d",var[i]);
+    return 0;
 }
