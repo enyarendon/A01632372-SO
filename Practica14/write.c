@@ -14,7 +14,6 @@ typedef struct s {
 
 int main(){
     int destination;
-
     Student *myStudents[total_students];
     destination = creat("class.bin", 0600);
     for (int i = 0; i<total_students; i++){
@@ -22,7 +21,7 @@ int main(){
         myStudents[i]->id = i;
         myStudents[i]->semester = 8;
         sprintf(myStudents[i]->firstName, "%s", "Enya");
-        sprintf(myStudents[i]->lastName, "%s_%d", "Rendon", i );
+        sprintf(myStudents[i]->lastName, "%s", "Rendon");
         write(destination, myStudents[i], sizeof(Student));
         free(myStudents[i]);
     }
